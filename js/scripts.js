@@ -1,4 +1,4 @@
-// INITIALISATION DES VARIABLES
+// INITIALISATION DES VARIABLES **********
 let statut = document.getElementById('statut');
 let square = document.querySelectorAll('.square')
 let reset = document.getElementById('reset')
@@ -19,17 +19,17 @@ const successCombinations = [
     [2, 4, 6]
 ]
 
-// MESSAGES
+// MESSAGES **********
 const turnMessage = () => `C'est au tour du joueur ${currentPlayer}.`
 const winMessage = () => `Le joueur ${currentPlayer} a gagné la partie !`
 const equalityMessage = () => `Egalité !`
 statut.innerHTML = turnMessage();
 
-// EVENEMENTS
+// EVENEMENTS **********
 square.forEach(square => square.addEventListener('click', clickOnSquare));
 reset.addEventListener('click', resetGame)
 
-// FONCTIONS
+// FONCTIONS **********
 
 // Click sur la case ----------
 function clickOnSquare() {
