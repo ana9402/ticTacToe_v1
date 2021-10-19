@@ -1,5 +1,33 @@
+/* Paramètres généraux */
 * {
     margin: 0;
     padding: 0;
-    
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Section #Game */
+#game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}
+
+/* Autre */
+#reset {
+    padding: 3px 15px;
 }
