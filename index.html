@@ -21,6 +21,20 @@
         <div class="row d-flex justify-content-center mb-4">
             <h2 >Play <span class="title">tic-tac-toe</span> with a friend.</h2>
         </div>
+        <div id="score" class="d-flex align-items-end gap-5">
+            <div class="d-flex flex-column align-items-center gap-2 lh-2">
+                Joueur X
+                <span id="player1Score" class="fs-1 fw-bold">0</span>
+            </div>
+            <div class="d-flex align-items-center fs-1 fw-bold lh-2"> : </div>
+            <div class="d-flex flex-column align-items-center gap-2 lh-2">
+                Joueur O
+                <span id="player2Score" class="fs-1 fw-bold">0</span>
+            </div>
+        </div>
+        <div>
+
+        </div>
         <section id="game_grid" class="row d-flex justify-content-center">
             <div class="row row-cols-4 gap-1 justify-content-center">
                 <div data-index="0" class="col square d-flex justify-content-center align-items-center bg-dark text-white fs-1"></div>
@@ -35,8 +49,12 @@
             </div>
         </section>
         <div class="row d-flex flex-column align-items-center">
-            <p id="statut" class="d-flex justify-content-center mb-4"></p>
-            <button type="reset" class="btn btn-dark w-auto" id="reset">Rejouer</button>
+            <p id="statut" class="d-flex justify-content-center mb-5 fw-bold"></p>
+            <div>
+                <button type="reset" class="btn btn-dark w-auto" id="replay">Rejouer</button>
+                <button type="reset" class="btn btn-danger w-auto" id="reset">Remettre à zéro</button>
+            </div>
+            
         </div>
     </div>
 

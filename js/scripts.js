@@ -1,7 +1,10 @@
 // INITIALISATION DES VARIABLES **********
+let player1Score = document.getElementById('player1Score');
+let player2Score = document.getElementById('player2Score');
 let statut = document.getElementById('statut');
-let square = document.querySelectorAll('.square')
-let reset = document.getElementById('reset')
+let square = document.querySelectorAll('.square');
+let replay = document.getElementById('replay');
+let reset = document.getElementById('reset');
 let runningGame = true;
 let player1 = "X";
 let player2 = "O";
@@ -27,14 +30,31 @@ statut.innerHTML = turnMessage();
 
 // EVENEMENTS **********
 square.forEach(square => square.addEventListener('click', clickOnSquare));
+replay.addEventListener('click', replayGame)
 reset.addEventListener('click', resetGame)
 
 // FONCTIONS **********
 
-// Click sur la case ----------
+// Affichage du score sur la page ----------
+function displayScore() {
+    let score = JSON.parse(localStorage.getItem('score'))
+    if (score !== null) {
+        player1Score.innerHTML = score.playerX;
+        player2Score.innerHTML = score.playerO;
+    } else {
+        let players = {
+            playerX: 0,
+            playerO: 0
+        }
+        localStorage.setItem('score', JSON.stringify(players))
+    }
+    /* */
+}
+displayScore();
+
+// Au clic sur la case ----------
 function clickOnSquare() {
     let squareIndex = parseInt(this.dataset.index);
-    console.log(squareIndex)
     // Si la case est déjà remplie ou que le jeu n'est pas en cours
     if (gameRecord[squareIndex] !== "" || runningGame === false) {
         return
@@ -70,6 +90,7 @@ function gameCheck() {
     if (win) {
         statut.innerHTML = winMessage();
         runningGame = false;
+        updateScore()
         return
     }
 
@@ -90,7 +111,26 @@ function changePlayer() {
     statut.innerHTML = turnMessage();
 }
 
+// Mettre à jour le score dans le localstorage ----------
+function updateScore() {
+    let score = JSON.parse(localStorage.getItem('score'))
+
+    if (currentPlayer === player1) {
+        score.playerX++;
+    } else {
+        score.playerO++;
+    }
+    
+    localStorage.setItem('score', JSON.stringify(score));
+}
+
 // Recommencer la partie ----------
+function replayGame() {
+    window.location.reload();
+}
+
+// Réinitialiser le score ----------
 function resetGame() {
+    localStorage.clear();
     window.location.reload();
 }
