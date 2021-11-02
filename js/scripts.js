@@ -6,8 +6,16 @@ let square = document.querySelectorAll('.square');
 let replay = document.getElementById('replay');
 let reset = document.getElementById('reset');
 let runningGame = true;
-let player1 = "X";
-let player2 = "O";
+let player1 = {
+    name: "X",
+    sign: "X",
+    score: 0
+};
+let player2 = {
+    name: "0",
+    sign: "0",
+    score: 0
+};
 let currentPlayer = player1;
 let gameRecord = ["", "", "", "", "", "", "", "", ""]
 
@@ -23,8 +31,8 @@ const successCombinations = [
 ]
 
 // MESSAGES **********
-const turnMessage = () => `C'est au tour du joueur ${currentPlayer}.`
-const winMessage = () => `Le joueur ${currentPlayer} a gagné la partie !`
+const turnMessage = () => `C'est au tour du joueur ${currentPlayer.name}.`
+const winMessage = () => `Le joueur ${currentPlayer.name} a gagné la partie !`
 const equalityMessage = () => `Egalité !`
 statut.innerHTML = turnMessage();
 
@@ -37,18 +45,18 @@ reset.addEventListener('click', resetGame)
 
 // Affichage du score sur la page ----------
 function displayScore() {
-    let score = JSON.parse(localStorage.getItem('score'))
-    if (score !== null) {
-        player1Score.innerHTML = score.playerX;
-        player2Score.innerHTML = score.playerO;
+    let players = JSON.parse(localStorage.getItem('players'))
+
+    if (players !== null) {
+        player1Score.innerHTML = players.player1.score;
+        player2Score.innerHTML = players.player2.score;
     } else {
         let players = {
-            playerX: 0,
-            playerO: 0
+            player1,
+            player2
         }
-        localStorage.setItem('score', JSON.stringify(players))
+        localStorage.setItem('players', JSON.stringify(players))
     }
-    /* */
 }
 displayScore();
 
@@ -60,8 +68,8 @@ function clickOnSquare() {
         return
     } 
    
-    this.innerHTML = currentPlayer;
-    gameRecord[squareIndex] = currentPlayer;
+    this.innerHTML = currentPlayer.sign;
+    gameRecord[squareIndex] = currentPlayer.sign;
 
     gameCheck();
 }
@@ -113,15 +121,15 @@ function changePlayer() {
 
 // Mettre à jour le score dans le localstorage ----------
 function updateScore() {
-    let score = JSON.parse(localStorage.getItem('score'))
+    let players = JSON.parse(localStorage.getItem('players'))
 
     if (currentPlayer === player1) {
-        score.playerX++;
+        players.player1.score++;
     } else {
-        score.playerO++;
+        players.player2.score++;
     }
     
-    localStorage.setItem('score', JSON.stringify(score));
+    localStorage.setItem('players', JSON.stringify(players));
 }
 
 // Recommencer la partie ----------
