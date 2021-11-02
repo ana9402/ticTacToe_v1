@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tic-Tac-Toe Game</title>
     <!-- Styles -->
@@ -23,12 +23,12 @@
         </div>
         <div id="score" class="d-flex align-items-end gap-5">
             <div class="d-flex flex-column align-items-center gap-2 lh-2">
-                Joueur X
+                Player X
                 <span id="player1Score" class="fs-1 fw-bold">0</span>
             </div>
             <div class="d-flex align-items-center fs-1 fw-bold lh-2"> : </div>
             <div class="d-flex flex-column align-items-center gap-2 lh-2">
-                Joueur O
+                Player O
                 <span id="player2Score" class="fs-1 fw-bold">0</span>
             </div>
         </div>
@@ -48,13 +48,12 @@
                 <div data-index="8" class="col square d-flex justify-content-center align-items-center bg-dark text-white fs-1"></div>
             </div>
         </section>
-        <div class="row d-flex flex-column align-items-center">
+        <div class="row d-flex flex-column align-items-center mb-5">
             <p id="statut" class="d-flex justify-content-center mb-5 fw-bold"></p>
             <div>
-                <button type="reset" class="btn btn-dark w-auto" id="replay">Rejouer</button>
-                <button type="reset" class="btn btn-danger w-auto" id="reset">Remettre à zéro</button>
+                <button type="reset" class="btn btn-dark" id="replay">Play again</button>
+                <button type="reset" class="btn btn-danger" id="reset">Reset scores</button>
             </div>
-            
         </div>
     </div>
 

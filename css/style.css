@@ -10,9 +10,14 @@ h1, .title {
     font-family: 'Lobster';
 }
 
-/* CONTENU */
 #game_grid {
     width: 450px;
+}  
+
+@media screen and (max-width: 768px) {
+    #game_grid {
+        width: 100%;
+    }  
 }
 
 .square {

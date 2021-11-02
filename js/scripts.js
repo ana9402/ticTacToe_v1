@@ -31,9 +31,9 @@ const successCombinations = [
 ]
 
 // MESSAGES **********
-const turnMessage = () => `C'est au tour du joueur ${currentPlayer.name}.`
-const winMessage = () => `Le joueur ${currentPlayer.name} a gagné la partie !`
-const equalityMessage = () => `Egalité !`
+const turnMessage = () => `Player ${currentPlayer.name}, it's your turn.`
+const winMessage = () => `Player ${currentPlayer.name} wins !`
+const equalityMessage = () => `Draw !`
 statut.innerHTML = turnMessage();
 
 // EVENEMENTS **********
