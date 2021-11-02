@@ -10,18 +10,24 @@ h1, .title {
     font-family: 'Lobster';
 }
 
-#game_grid {
-    width: 450px;
-}  
-
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 500px) {
     #game_grid {
-        width: 100%;
-    }  
+        width: 400px;
+    }    
 }
 
 .square {
-    font-family: Arial-Black;
-    height: 100px;
-    width: 100px;
+    font-family: Arial-Black, Archivo Black;
+    height: 110px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 499px) {
+    #game_grid {
+        width: 320px;
+    }
+
+    .square {
+        height: 94px;
+    }
+}
+
